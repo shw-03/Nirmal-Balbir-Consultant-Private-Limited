@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Balbir Consultancy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Add Slick Carousel CSS (CDN) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9; /* Light background color */
+        }
+
+        /* Header Styling */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .nav-left ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-left ul li {
+            position: relative;
+        }
+
+        .nav-left ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 15px;
+        }
+
+        .nav-left ul li a:hover {
+            color: #f0a500;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #187cd9;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            list-style: none;
+            padding: 10px 0;
+            min-width: 200px;
+            display: none;
+        }
+
+        .dropdown li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .dropdown li a:hover {
+            color: #f0a500;
+        }
+
+        .nav-left ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Video Background */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+ </style>
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const loginLink = document.getElementById('loginLink');
+    const dropdown = document.getElementById('dropdown');
+
+    if (loginLink && dropdown) {
+        loginLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!loginLink.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    } else {
+        console.error('loginLink or dropdown element not found in the DOM.');
+    }
+});
+</script>
+</head>
+<body>
+    <!-- Background Video Section -->
+    <div class="video-section">
+        <video autoplay muted loop>
+            <source src="assets/videos/explore2.mp4" type="video/mp4">
+        </video>
+
+        <!-- Header -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="Images/Logo.png" alt="Nirmal Balbir Consultancy Logo">
+                </div>
+                <div class="nav-left">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+               
+			<li><a href="https://wa.me/7087505282?text=Hello%2C%20I%20need%20assistance" target="_blank">Contact</a></li> 
+                        <li><body>
+                            <a href="#" id="loginLink">Login</a>
+                            <div id="dropdown" style="display: none;">Dropdown Content</div>
+                        
+                            <script src="script.js"></script>
+
+                </div>
+            </nav>
+        </header>
+      
+</body>
+</html>
