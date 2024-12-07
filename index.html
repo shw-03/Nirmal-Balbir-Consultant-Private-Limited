@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Balbir Consultancy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Add Slick Carousel CSS (CDN) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9; /* Light background color */
+        }
+
+        /* Header Styling */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .nav-left ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-left ul li {
+            position: relative;
+        }
+
+        .nav-left ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 15px;
+        }
+
+        .nav-left ul li a:hover {
+            color: #f0a500;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #187cd9;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            list-style: none;
+            padding: 10px 0;
+            min-width: 200px;
+            display: none;
+        }
+
+        .dropdown li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .dropdown li a:hover {
+            color: #f0a500;
+        }
+
+        .nav-left ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Video Background */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* Content Styling */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .content h1 {
+            font-size: 40px;
+            color: #ffbf00;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        /* New Section Styling */
+        .new-section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .new-section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .new-section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Service Boxes Styling */
+        .services {
+            padding: 20px;
+            background: #0b6bbc;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .services h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .service-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            color: #333;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .service-box img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Hover Effect for Service Box */
+        .service-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Image Styling */
+        @media (max-width: 768px) {
+            .service-box img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .service-box {
+                width: 100%;
+            }
+        }
+
+    </style>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const loginLink = document.getElementById('loginLink');
+    const dropdown = document.getElementById('dropdown');
+
+    if (loginLink && dropdown) {
+        loginLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!loginLink.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    } else {
+        console.error('loginLink or dropdown element not found in the DOM.');
+    }
+});
+</script>
+</head>
+<body>
+    <!-- Background Video Section -->
+    <div class="video-section">
+        <video autoplay muted loop>
+            <source src="assets/videos/explore2.mp4" type="video/mp4">
+        </video>
+
+        <!-- Header -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="Images/logo.png" alt="Nirmal Balbir Consultancy Logo">
+                </div>
+                <div class="nav-left">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+               
+			<li><a href="https://wa.me/7087505282?text=Hello%2C%20I%20need%20assistance" target="_blank">Contact</a></li> 
+                        <li><body>
+                            <a href="#" id="loginLink">Login</a>
+                            <div id="dropdown" style="display: none;">Dropdown Content</div>
+                        
+                            <script src="script.js"></script>
+
+                </div>
+            </nav>
+        </header>
+        <!-- Content Section -->
+        <div class="content">
+            <h1>Nirmal Balbir Consultant Private Limited</h1>
+            <h2>Integrated Compliance Solutions</h2>
+      <p>
+         <span style="color: yellow; font-weight: bold;">Your Path, Our Guidance Just Tell Us What</span>
+      </p>
+   </div>
+</div>
+
+<!-- New Section Below the Video Background -->
+<style>
+    .new-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background-color: #2d79d6; /* Blue background */
+        padding: 50px 20px; /* Adds padding for spacing */
+        color: white; /* Text color for readability */
+    }
+
+    .new-section img {
+        border-radius: 50%; /* Makes the image circular */
+        width: 500px; /* Adjust size as needed */
+        height: 500px; /* Ensures the circular shape */
+        object-fit: cover; /* Ensures the image is nicely cropped */
+        margin-right: 30px; /* Adds spacing between image and text */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
+    }
+
+    .new-section-content {
+        flex: 1; /* Allows text to take up remaining space */
+        max-width: 60%; /* Adjust text container width as needed */
+        text-align: left; /* Aligns text to the left */
+    }
+
+    .new-section h2 {
+        font-size: 2.5rem; /* Larger heading */
+        margin-bottom: 20px; /* Adds spacing below the heading */
+        color: #ffbf00; /* Bright yellow for contrast */
+    }
+
+    .new-section p {
+        font-size: 1.25rem; /* Larger paragraph text */
+        line-height: 1.8; /* Increases line spacing for readability */
+        color: white; /* Ensures visibility on the blue background */
+    }
+
+    @media (max-width: 768px) {
+        .new-section {
+            flex-direction: column; /* Stacks content vertically on smaller screens */
+            text-align: center; /* Centers content on smaller screens */
+        }
+
+        .new-section img {
+            margin: 0 0 20px 0; /* Adjusts spacing for stacked layout */
+            width: 350px; /* Adjust size for smaller screens */
+            height: 350px;
+        }
+
+        .new-section-content {
+            max-width: 100%; /* Full width for text container */
+        }
+    }
+</style>
+
+<section class="new-section">
+    <img src="Images/ashishsir.jpg" alt="Ashish Sir - Nirmal Balbir Consultant">
+    <div class="new-section-content">
+        <h2>Welcome to Nirmal Balbir Consultant Pvt. Ltd.</h2>
+        <p>
+            We offer reliable, efficient solutions to help your business navigate licensing and regulatory requirements with ease. 
+            Our expertise ensures you meet compliance standards swiftly, so you can focus on growth.
+        </p>
+    </div>
+</section>
+
+<style>
+.section-divider {
+    height: 30px; /* Adjust the height as needed */
+    background-image: url('path-to-your-pattern-image.png'); /* Path to the pattern image */
+    background-size: cover; /* Ensure the pattern covers the entire width */
+    margin: 40px 0; /* Add space above and below the line */
+}
+</style>
+    
+<div class="section-divider"></div> <!-- Patterned Divider -->
+
+
+
+<style>
+.expertise-section {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
+.text-content {
+    flex: 1;
+    padding-left: 20px; /* Adds space between text and image */
+}
+.expertise-section h2 {
+    font-size: 40px; /* Large font size */
+    color: #2d79d6; /* Blue color */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 20px; /* Space below the heading */
+    text-transform: uppercase; /* Optional: Make the text uppercase */
+    text-align: center; /* Center-align the text horizontally */
+    width: 80%; /* Limit the width of the heading */
+    margin: 0 auto; /* Center the heading within its container */
+    
+}
+.expertise-section h3 {
+    font-size: 32px; /* Larger font size */
+    color: #333; /* Dark color for contrast */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center-align the text horizontally */
+    width: 80%; /* Limit the width of the heading */
+    margin: 0 auto; /* Center the heading within its container */
+}
+.text-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+.text-content .btn-primary {
+    background-color: #2d79d6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.text-content .btn-primary:hover {
+    background-color: #50cd89;
+}
+
+</style>
+
+<section class="expertise-section" style="padding: 40px 20px; background-color: #f8f9fa;">
+    <div class="container">
+        <div class="row d-flex align-items-start justify-content-between">
+            <!-- Image on Left with fixed size -->
+            <div class="image-content" style="flex: 1; text-align: center;">
+                <img src="Images/expert.jpg" alt="Progress and innovation concept" style="width: 600px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+            </div>
+            
+            <!-- Text Content on Right -->
+            <div class="text-content" style="flex: 1; padding-left: 20px;">
+                <!-- Box for Our Mission -->
+                <div style="background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                    <h2 class="text-primary">Nirmal Balbir Consultant Private Limited</h2>
+                    <h3>Our Mission</h3>
+                    <p style="font-size: 1.5rem;">
+                        At Nirmal Balbir Consultant Private Limited, we recognize that each industry has unique challenges. We tailor internal controls, procedures, and policies to fit the specific needs of each sector. Our approach begins with understanding both the sector and the organization, customizing solutions based on size, industry, and internal systems.
+                    </p>
+                   
+                </div>
+
+                <!-- Box for Our Expertise -->
+                <div style="background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                    <h3>Our Expertise</h3>
+                    <p style="font-size: 1.5rem;">
+                        Our team at Nirmal Balbir Consultant Private Limited has years of experience in the licensing industry, and we are constantly staying up-to-date on the latest regulations and requirements. This expertise allows us to provide our clients with the highest quality licensing services possible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Empowering Compliance Solutions with Industry Proficiency</h2>
+      <div class="service-box">
+    <!-- Add the image here -->
+    <img src="assets/icon/licensing.png" alt="Licensing Image" class="service-image">
+
+    <h3>Licensing</h3>
+    <p>✨Simplify licensing with our step-by-step support—paperwork, documentation, and submission—for fast, accurate approvals.</p>
+    <a href="licensing.html" class="cta-button">Learn More</a>
+</div>
+
+        <div class="service-box">
+  <!-- Add the image here -->
+    <img src="assets/icon/renew.png"alt="Licensing Image" class="service-image">
+
+            <h3>License Renewals and Maintenance</h3>
+            <p>Never miss renewals—stay compliant while we handle the rest.</p>
+            <a href="renewals.html" class="cta-button">Learn More</a>
+        </div>
+        <div class="service-box">
+
+  <!-- Add the image here -->
+  <img src="assets/icon/fssai.png" alt="Licensing Image" class="service-image" >
+
+
+            <h3>Effortless FSSAI Registration Support</h3>
+            <p>Manage your FSSAI registration with ease—stay compliant while you focus on growth.</p>
+            <a href="fssai.html" class="cta-button">Learn More</a>
+        </div>
+        <div class="service-box">
+
+  <!-- Add the image here -->
+    <img src="assets/icon/complaince.jpg" alt="Factory Compliance" class="service-image">
+            <h3>Factory Compliance</h3>
+            <p>Essential for factories, ensuring compliance with health, safety, and environmental regulations.</p>
+            <a href="factorycomplaince.html" class="cta-button">Learn More</a>
+        </div>
+       <div class="service-box">
+  <!-- Add the image here -->
+    <img src="assets/icon/nutra.jpg" alt="Nutraceuticals" class="service-image">
+
+           <h3>Specialized In Nutraceuticals Licensing</h3>
+            <p>We help nutraceutical businesses secure FSSAI licenses for full compliance and smooth operations.</p>
+            <a href="nutra.html" class="cta-button">Learn More</a>
+        </div>     
+      <div class="service-box">
+    <!-- Add the image here -->
+    <img src="assets/icon/trade.png" alt="Nutraceuticals" class="service-image">
+
+    <h3>Trade Licensing</h3>
+    <p>We simplify trade license processes, ensuring compliance and smooth operations.</p>
+    <a href="trade.html" class="cta-button">Learn More</a>
+</div>     
+
+    </section>
+
+<style>
+  .divclient {
+    align-items: center;
+    background: #E3E3E3;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  @-webkit-keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+
+  .target:hover {
+    transform: scale(1.05);
+  }
+
+  .slider {
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slider::before,
+  .slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+
+  .slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  .slider::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slider .slide-track {
+    -webkit-animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(300px * 14);
+  }
+
+  .slider .slide {
+    width: 300px;
+  }
+
+  .slide img {
+    padding: 20px;
+  }
+
+  .trustedbrand {
+    border-right: 3px solid #3f54e4;
+    border-radius: 40px;
+  }
+
+
+  .slider:hover .item {
+    animation-play-state: paused;
+  }
+  .call-action{
+      margin-bottom: 10px !important;
+    }
+  @media (max-width: 768px) {
+    .call-action{
+      margin-bottom: 0 !important;
+    }
+    .trustedbrand {
+    border-right: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    justify-content: center;
+    }
+    .slider .slide {
+      width: 150px;
+    }
+
+    .my-5 {
+      margin-top: 1rem !important;
+      margin-bottom: 1rem !important;
+    }
+    .rever .col-md-9 {
+      order: 2;
+    }
+    .rever .col-md-3 {
+      order: 1;
+    }
+  }
+/* Optional: Customize the slider appearance */
+.slick-slide img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;  /* Ensures images maintain aspect ratio */
+}
+
+/* Styling for the trusted brands text section */
+.trustedbrand h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: #007bff;
+}
+
+ 
+</style>
+
+
+<!-- Add WOW.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+<div class="container pt-5" id="clients" style="visibility: visible;">
+    <div class="row">
+        <!-- Left side: Slider -->
+        <div class="col-md-9 col-12">
+            <div class="clientdiv">
+                <div class="slider my-6">
+                    <div class="slide-track">
+                        <!-- Existing slides here -->
+                        <div class="slide">
+                            <a href="https://www.barista.co.in" target="_blank">
+                                <img src="Images/client/barista.png" alt="barista" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.burgerking.com" target="_blank">
+                                <img src="Images/client/burgerking.png" alt="burgerking" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.flipkart.com" target="_blank">
+                                <img src="Images/client/flipkart.png" alt="flipkart" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.grofers.com" target="_blank">
+                                <img src="Images/client/grofers.png" alt="grofers" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.jamieoliver.com" target="_blank">
+                                <img src="Images/client/jamie oliver.png" alt="Jamie Oliver" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.starbucks.in" target="_blank">
+                                <img src="Images/client/starbucks.png" alt="Starbucks" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.swiggy.in" target="_blank">
+                                <img src="Images/client/swiggyinstamart.png" alt="Swiggy Instamart" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <!-- New Rebel Foods Slide -->
+                        <div class="slide">
+                            <a href="https://www.rebelfoods.com" target="_blank">
+                                <img src="Images/client/rebel.png" alt="Rebel Foods" style="width: 150px; height: auto;">
+                            </a> 
+         
+
+                        <!-- Existing slides here -->
+                        <div class="slide">
+                            <a href="https://www.barista.co.in" target="_blank">
+                                <img src="Images/client/barista.png" alt="barista" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.burgerking.com" target="_blank">
+                                <img src="Images/client/burgerking.png" alt="burgerking" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.flipkart.com" target="_blank">
+                                <img src="Images/client/flipkart.png" alt="flipkart" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.grofers.com" target="_blank">
+                                <img src="Images/client/grofers.png" alt="grofers" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.jamieoliver.com" target="_blank">
+                                <img src="Images/client/jamie oliver.png" alt="Jamie Oliver" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.starbucks.in" target="_blank">
+                                <img src="Images/client/starbucks.png" alt="Starbucks" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <a href="https://www.swiggy.in" target="_blank">
+                                <img src="Images/client/swiggyinstamart.png" alt="Swiggy Instamart" style="width: 150px; height: auto;">
+                            </a>
+                        </div>
+                        <!-- New Rebel Foods Slide -->
+                        <div class="slide">
+                            <a href="https://www.rebelfoods.com" target="_blank">
+                                <img src="Images/client/rebel.png" alt="Rebel Foods" style="width: 150px; height: auto;">
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right side: Trusted By text -->
+        <div class="col-md-3 col-12 d-flex align-items-center trustedbrand p-5 wow animate__fadeIn">
+            <h2 class="fs-2hx text-center text-primary" style="font-size: 32px; font-weight: 700; margin-bottom: 50px !important;">
+                <span>Our Prestigious Clientele</span>
+            </h2>
+        </div>
+    </div>
+</div>
+
+<!-- Add jQuery and Slick Carousel JS (CDN) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        // Initialize the slick carousel
+        $('.slider').slick({
+            infinite: true,  // Infinite scrolling
+            slidesToShow: 3,//Show 3 images at once
+            slidesToScroll: 2, // Scroll one image at a time
+            autoplay: true,    // Enable autoplay
+            autoplaySpeed: 2000,  // Speed of autoplay (2 seconds)
+            arrows: true,      // Show navigation arrows
+            dots: true,        // Show dots for navigation
+            centerMode: true,        // Enable center mode for a continuous effect
+            centerPadding: '10',      // Remove any padding between slides in center mode
+            focusOnSelect: true,     // Allow clicking on the centered item
+            responsive: [
+                {
+                    breakpoint: 768,  // Mobile responsiveness
+                    settings: {
+                        slidesToShow: 2, // Show 4 images on mobile
+                        dots: false,   // Hide dots on mobile screens
+                    }
+                },
+                {
+                    breakpoint: 480,  // Very small screens
+                    settings: {
+                        slidesToShow: 2,   // Show 2 images on very small screens
+                        dots: false,   // Hide dots on very small screens
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
+<!-- Initialize WOW.js -->
+<script>
+    new WOW().init();
+</script>
+
+<!-- Start Footer Top -->
+<div class="footer-top" style="padding-bottom: 30px; background-color: #2e3b47;">
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            
+                <div class="single-footer f-about text-white">
+                    <div class="logo mb-3">
+                        <a href="https://nbcompliance.in/" class="text-white fw-bold fs-2">
+                            Nirmal Balbir Private Limited
+                        </a>
+                    </div>
+                    <p class="fs-6">Registered Office: 215, Sector 37 C, Sector 37, Chandigarh, India</p>
+                    <p class="fs-6">Corporate Office: Cabin No. 3, Basement, Majors Tower, Sector 74, Mohali, Punjab</p>
+                </div>
+            </div>
+
+            <!-- Footer Links Section -->
+          
+                <div class="row">
+                    <!-- Solutions -->
+                    
+                        <div class="single-footer f-link">
+                            <h3 class="text-white">Solutions</h3>
+                            <ul>
+                                <li><a href="licensing.php">Licensing</a></li>
+                                <li><a href="payroll-services.php">Payroll Services & Compliance</a></li>
+                                <li><a href="labour-compliance.php">Contract Labour Compliance</a></li>
+                                <li><a href="audit-and-assurance.php">Audit & Consultation</a></li>
+                                <li><a href="factory-compliance.php">Factory Compliance</a></li>
+                                <li><a href="IT-enables-services.php">IT & IT Enabled Services</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Company -->
+                    
+                        <div class="single-footer f-link">
+                            <h3 class="text-white">Company</h3>
+                            <ul>
+                                <li><a href="about-us">About Us</a></li>
+                                <li><a href="team">Our Team</a></li>
+                                <li><a href="careers">Careers</a></li>
+                                <li><a href="enquiry">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Legal -->
+                   
+                        <div class="single-footer f-link">
+                            <h3 class="text-white">Legal</h3>
+                            <ul>
+                                <li><a href="privacy-policy">Privacy Policy</a></li>
+                                <li><a href="sitemap.xml">Sitemap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Location Map Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="map-container">
+                    <h3 class="text-white text-center mb-3">Our Location</h3>
+                    <div class="map-iframe">
+                        <!-- Updated Map Location -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.5518340347417!2d76.6845543!3d30.6946735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feee29b4e6655%3A0x6ea718c41270ef94!2sMajor%27s%20Tower%2C%20215%20Sector%2037%20C%2C%20Chandigarh%2C%20India!5e0!3m2!1sen!2sin!4v1704111724953!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <p class="copyright-text mt-4 mb-2 text-white text-center" style="background: #ffffff1c; padding: 20px;">
+            Designed and Developed by <a href="https://server.eminentcompliance.com/" rel="nofollow" target="_blank" class="text-white">Nirmal Balbir Private Limited <img src="assets/icon/india.gif" width="30px" alt=""></a>
+        </p>
+    </div>
+</div>
+<!-- End Footer Area -->
+
+<!-- CSS -->
+
+<style>
+    .logo-footer {
+        max-height: 20px; /* Set the maximum height */
+        max-width: 100%;  /* Ensure it scales down if needed */
+        height: auto;     /* Maintain aspect ratio */
+        width: auto;      /* Maintain aspect ratio */
+    }
+
+   .footer-top {
+    background-color: #2d79d6 !important; /* Force blue background with !important */
+    color: white; /* Set text color to white for contrast */
+    padding:40px 20px ;/* Increased padding for better spacing */
+}
+
+.single-footer .logo a {
+    font-size: 12px; /* Adjust font size for readability */
+    color: white;
+    font-weight: bold;
+}
+
+.single-footer .logo a:hover {
+    color: #50cd89; /* Highlight color for links on hover */
+    text-transform: underline; /* Optional: Add uppercase styling for branding */
+}
+
+.single-footer p {
+    font-size: 14px;
+     margin-bottom: 10px;
+    line-height: 1.5; /* Improved readability */
+}
+
+
+.single-footer .f-link h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+    text-transform: uppercase; /* Optional: Add uppercase styling */
+}
+
+.single-footer .f-link ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.single-footer .f-link ul li {
+    margin: 10px 0;/* Adjust spacing between list items */
+}
+
+.single-footer .f-link a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 16px; /* Adjust font size for links */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+
+.single-footer .f-link a:hover {
+    color: #50cd89;/* Highlight color on hover */
+}
+
+.map-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.map-iframe iframe {
+    border-radius: 7px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);/* Add depth to the map */
+     max-width: 100%; /* Ensure responsiveness */
+    height: auto;
+}
+
+/* Ensure copyright section matches the footer's background */
+.footer-top .copyright-text {
+    background:#1f2a33; /* Darker background for copyright section */
+    font-size: 14px;
+    color: white; /* Adjust text color for contrast */
+    padding: 20px; /* Add padding for spacing */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add space above the section */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Optional: Subtle border for separation */
+}
+
+.footer-top .copyright-text a {
+    color: #50cd89;
+    font-weight: bold;
+    text-decoration: none; /* Remove underline for a clean look */
+}
+
+.footer-top .copyright-text a:hover {
+    color: #009ef7;
+    text-decoration: underline; /* Add underline effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-top {
+        padding: 20px 10px; /* Reduce padding for smaller screens */
+    }
+
+    .single-footer {
+        margin-bottom: 20px; /* Add space between columns */
+    }
+
+    .map-container {
+        margin-top: 20px; /* Adjust spacing for responsiveness */
+    }
+}
+</style>
+</body>
+</html>

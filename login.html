@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Balbir Consultancy - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9; /* Light background color */
+        }
+
+         /* Video Background */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8; /* Set video opacity to make the form more readable */
+            z-index: -1; /* Make sure the video stays behind the form */
+        }
+
+        /* Header Styling */
+        header {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent for readability */
+            color: white;
+            padding: 20px;
+            position: fixed; /* Make header sticky */
+            left: 0;
+            width: 100%;  
+            top: 0; /* Stick to the top of the page */
+            z-index: 1000; /* Ensure header is above other elements */
+            transition: top 0.3s; /* Smooth transition for appearing/disappearing */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .nav-left ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+	.nav-left ul li {
+            position: relative;
+        }
+        .nav-left ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 15px;
+        }
+
+        .nav-left ul li a:hover {
+            color: #f0a500;
+        }
+
+        /* Login Form Styling */
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10; /* Ensure the form is above the video */
+        }
+
+        .container h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .container input {
+            background-color: #eee;
+            border: none;
+            padding: 12px 15px;
+            font-size: 14px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .container input:focus {
+            border: 2px solid #2b6bba;
+        }
+
+        .container button {
+            background-color: #2b6bba;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #1e4e8d;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .form-container span {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .form-container a {
+            font-size: 14px;
+            color: #2b6bba;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .form-container a:hover {
+            color: #f0a500;
+        }
+
+        .form-container .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Toggle Between Sign In and Sign Up */
+        .toggle-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .toggle-container button {
+            background-color: transparent;
+            border: 1px solid #2b6bba;
+            color: #2b6bba;
+            padding: 8px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .toggle-container button:hover {
+            background-color: #2b6bba;
+            color: #fff;
+        }
+
+        /* Hide Forms on Initial Load */
+        .sign-up {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+  <!-- Video Background Section -->
+    <div class="video-section">
+        <video autoplay muted loop>
+            <source src="assets/videos/vedio2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Images/logo.png" alt="Logo">
+            </div>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container sign-in">
+            <form id="loginForm">
+                <h1>Sign In</h1>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <span class="forgot-password"><a href="#">Forget Your Password?</a></span>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-up">
+            <form id="signupForm">
+                <h1>Create Account</h1>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Toggle Between Sign In and Sign Up -->
+        <div class="toggle-container">
+            <button id="sign-in-toggle">Sign In</button>
+            <button id="sign-up-toggle">Sign Up</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between Sign In and Sign Up
+        document.getElementById('sign-in-toggle').addEventListener('click', function() {
+            document.querySelector('.sign-in').style.display = 'block';
+            document.querySelector('.sign-up').style.display = 'none';
+        });
+
+        document.getElementById('sign-up-toggle').addEventListener('click', function() {
+            document.querySelector('.sign-up').style.display = 'block';
+            document.querySelector('.sign-in').style.display = 'none';
+        });
+
+        // Signup Functionality
+        document.getElementById('signupForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const name = this.querySelector('input[placeholder="Name"]').value;
+            const email = this.querySelector('input[placeholder="Email"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+
+            const response = await fetch('http://localhost:5002/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password }),
+            });
+
+            if (response.ok) {
+                alert('Signup successful');
+                this.reset(); // Reset the form
+            } else {
+                alert('Signup failed');
+            }
+        });
+
+        // Login Functionality
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const email = this.querySelector('input[placeholder="Email"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+
+            const response = await fetch('http://localhost:5002/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('token', data.token); // Store the token in local storage
+                alert('Login successful');
+                // Optionally redirect to a user dashboard or another page
+            } else {
+                alert('Login failed');
+            }
+        });
+    </script>
+
+</body>
+</html>

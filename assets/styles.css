@@ -1,0 +1,125 @@
+/* Video Background for Header and Content */
+.video-container {
+    position: fixed; /* Fixed position to keep video in the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Place the video behind everything */
+}
+
+#video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the container area */
+}
+
+/* Header Styling */
+header {
+    position: relative;
+    z-index: 1; /* Ensure header is above the video */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    color: #fff;
+    padding: 20px 20px;
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styling */
+.logo img {
+    height: 100px; /* Adjust logo size as needed */
+    margin-right: 30px;
+}
+
+/* Navigation Links */
+.nav-left ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-left a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    transition: color 0.4s;
+}
+
+.nav-left a:hover {
+    color: #f0a500; /* Highlight color on hover */
+}
+
+/* Content Styling */
+.content {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for readability */
+    padding: 30px 40px;
+    border-radius: 10 px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    z-index: 1; /* Ensure content is above the video */
+}
+
+.content h1 {
+    font-size: 30px; /* Increased font size for more prominence */
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    font-weight: bold; /* Retained bold text */
+    color: #ffbf00; /* Changed text color to yellow */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Added shadow for better readability on video backgrounds */
+    text-align: center; /* Center-aligned for better positioning in content */
+}
+
+.content h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+/* Login Form */
+form {
+    width: 200px;
+    margin: 50px auto;
+    text-align: left;
+    background: #fff; /* White background for the form */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+

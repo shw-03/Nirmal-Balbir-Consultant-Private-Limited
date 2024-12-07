@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Balbir Consultancy - Services</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+
+    <!-- Internal Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333; /* Default text color */
+        }
+
+        /* Header Styling */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+	    transition: top 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .nav-left ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-left ul li {
+            position: relative;
+        }
+
+        .nav-left ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 15px;
+        }
+
+        .nav-left ul li a:hover {
+            color: #f0a500;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #187cd9;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            list-style: none;
+            padding: 10px 0;
+            min-width: 200px;
+            display: none;
+        }
+
+        .dropdown li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .dropdown li a:hover {
+            background-color: #f0a500;
+        }
+
+        /* Video Section */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        /* Overlay Content */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .content h1 {
+            font-size: 36px;
+            color: #ffbf00;
+            margin-bottom: 20px;
+        }
+
+        .content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .content ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        .services h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #187cd9; /* Blue Color */
+        }
+
+        .service-box {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            vertical-align: top;
+            width: calc(33.33% - 40px); /* Three items per row */
+            box-sizing: border-box;
+        }
+
+        .service-box img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .service-box p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .service-box {
+                width: calc(50% - 40px); /* Two items per row */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-box {
+                width: 100%; /* Full width */
+                margin: 10px 0;
+            }
+
+            .content ul {
+                padding-left: 10px;
+            }
+        }
+    </style>
+
+    <!-- JavaScript for Dropdown -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginLink = document.querySelector('.login-link');
+            const dropdown = document.querySelector('.dropdown');
+
+            loginLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!loginLink.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Images/logo.png" alt="Logo">
+            </div>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="https://wa.me/7087505282?text=Hello%2C%20I%20need%20assistance" target="_blank">Contact</a></li> 
+                    <li>
+                        <a href="client-login.html" class="login-link">Login</a>
+                     <!--   <ul class="dropdown">
+                            <li><a href="employee-login.html">Employee Login</a></li>
+                            <li><a href="client-login.html">Client Login</a></li>
+                        </ul>-->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Video Section -->
+    <div class="video-section">
+        <video autoplay muted loop>
+            <source src="assets/videos/vedio2.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>Our Services</h1>
+            <ul>
+                <li>Licensing and Registration</li>
+                <li>FSSAI Support</li>
+                <li>Trade Licensing</li>
+                <li>Factory Compliance</li>
+ 		<li>Shop and Establishment Registration</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Empowering Compliance Solutions with Industry Proficiency</h2>
+
+        <div class="service-box">
+            <img src="assets/icon/licensing.png" alt="Licensing">
+            <h3>Licensing</h3>
+            <p>Simplify licensing with our step-by-step support.</p>
+            <a href="licensing.html" class="cta-button">Learn More</a>
+        </div>
+
+        <div class="service-box">
+            <img src="assets/icon/renew.png" alt="Renewals">
+            <h3>License Renewals</h3>
+            <p>Never miss renewals while we handle the rest.</p>
+            <a href="renewals.html" class="cta-button">Learn More</a>
+        </div>
+
+        <div class="service-box">
+            <img src="assets/icon/fssai.png" alt="FSSAI">
+            <h3>FSSAI Registration</h3>
+            <p>Manage your FSSAI registration with ease.</p>
+            <a href="fssai.html" class="cta-button">Learn More</a>
+        </div>
+    </section>
+</body>
+</html>

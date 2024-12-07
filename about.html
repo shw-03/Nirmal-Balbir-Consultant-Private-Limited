@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Balbir Consultancy - About</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Add Slick Carousel CSS (CDN) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5; /* Light background color */
+        }
+
+        /* Header Styling */
+        header {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent for readability */
+            color: white;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .nav-left ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-left ul li {
+            position: relative;
+        }
+
+        .nav-left ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 15px;
+        }
+
+        .nav-left ul li a:hover {
+            color: #f0a500;
+        }
+
+        .nav-left ul li .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #187cd9;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            list-style: none;
+            padding: 10px 0;
+            min-width: 200px;
+            display: none;
+        }
+
+        .nav-left ul li .dropdown li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .nav-left ul li .dropdown li a:hover {
+            color: #f0a500;
+        }
+
+        .nav-left ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Video Background */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 90vh; /* Full viewport height */
+            overflow: hidden;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* About Content Styling */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .content h1 {
+            font-size: 36px;
+            color: #ffbf00;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        /* Quote Section Styling */
+        blockquote {
+            position: relative;
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #007bff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            line-height: 1.8;
+            color: #555;
+            font-style: italic;
+            max-width: 900px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        blockquote:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        blockquote div {
+            flex: 1;
+            margin-right: 30px;
+        }
+
+        blockquote figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        blockquote figure img {
+            width: 250px; /* Larger image size for founder */
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        blockquote figure figcaption small {
+            font-size: 20px;
+            color: #777;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            .nav-left ul li a {
+                font-size: 18px;
+            }
+
+            blockquote {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            blockquote div {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            blockquote figure img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Background Video Section -->
+    <div class="video-section">
+        <video autoplay muted loop>
+            <source src="assets/videos/explore2.mp4" type="video/mp4">
+        </video>
+
+        <!-- Header -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="Images/logo.png" alt="Nirmal Balbir Consultancy Logo">
+                </div>
+                <div class="nav-left">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                       <li><a href="https://wa.me/7087505282?text=Hello%2C%20I%20need%20assistance" target="_blank">Contact</a></li> 
+                       <li><a href="login.html" >Login</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Content Section -->
+        <div class="content">
+            <h1>About Us</h1>
+            <h2>Expert Compliance Services for Your Business</h2>
+            <p>
+                Nirmal Balbir Consultancy is a leading firm offering compliance advisory services to businesses across various industries.
+                We specialize in helping companies navigate through complex regulations and ensuring they meet legal requirements efficiently.
+            </p>
+        </div>
+    </div>
+
+    <!-- Quote Section -->
+    <blockquote>
+        <div>
+            <p>"Do not wait to strike till the iron is hot, but make it hot by striking."</p>
+        </div>
+        <figure>
+            <img src="Images/ashishsir.jpg" alt="Ashish Kumar (Founder & Director)">
+            <figcaption><small>-Ashish Kumar (Founder & Director)</small></figcaption>
+        </figure>
+    </blockquote>
+</body>
+</html>
